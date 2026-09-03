@@ -1,13 +1,14 @@
 :root {
-  --ink: #17221f;
-  --muted: #65716d;
-  --paper: #f6f1e8;
-  --panel: rgba(255, 252, 246, 0.82);
-  --line: rgba(23, 34, 31, 0.13);
-  --accent: #0b6b58;
-  --accent-strong: #063f35;
-  --gold: #b8862f;
-  --shadow: 0 24px 70px rgba(30, 43, 39, 0.13);
+  --ink: #1f2933;
+  --muted: #64707d;
+  --paper: #ffffff;
+  --soft: #f7f9fb;
+  --panel: #ffffff;
+  --line: #e5eaf0;
+  --accent: #2563a8;
+  --accent-strong: #123f73;
+  --label: #6b7280;
+  --shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
 }
 
 * {
@@ -21,22 +22,13 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 10% 0%, rgba(184, 134, 47, 0.16), transparent 28rem),
-    radial-gradient(circle at 90% 12%, rgba(11, 107, 88, 0.16), transparent 30rem),
-    linear-gradient(135deg, #fbf7ef 0%, var(--paper) 48%, #eef3ee 100%);
+  background: var(--paper);
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.65;
 }
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: linear-gradient(rgba(23, 34, 31, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 34, 31, 0.035) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(to bottom, black, transparent 75%);
+  content: none;
 }
 
 a {
@@ -56,8 +48,8 @@ a:hover {
   top: 0;
   z-index: 10;
   border-bottom: 1px solid var(--line);
-  background: rgba(246, 241, 232, 0.78);
-  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
 }
 
 .nav {
@@ -112,7 +104,7 @@ main,
 .eyebrow,
 .section-kicker {
   margin: 0 0 10px;
-  color: var(--gold);
+  color: var(--label);
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 0.78rem;
   font-weight: 800;
@@ -153,7 +145,7 @@ h3 {
 .role {
   max-width: 700px;
   margin: 28px 0 0;
-  color: var(--accent-strong);
+  color: var(--ink);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   font-weight: 700;
 }
@@ -194,7 +186,7 @@ h3 {
 }
 
 .button.secondary {
-  background: rgba(255, 252, 246, 0.72);
+  background: #fff;
   color: var(--accent-strong);
   box-shadow: none;
 }
@@ -203,19 +195,13 @@ h3 {
   position: relative;
   padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 30px;
+  border-radius: 18px;
   background: var(--panel);
   box-shadow: var(--shadow);
-  transform: rotate(1.5deg);
 }
 
 .profile-card::before {
-  content: "";
-  position: absolute;
-  inset: 18px -14px -14px 18px;
-  z-index: -1;
-  border: 1px solid rgba(184, 134, 47, 0.45);
-  border-radius: 30px;
+  content: none;
 }
 
 .profile-card img {
@@ -223,8 +209,7 @@ h3 {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 22px;
-  filter: saturate(0.94) contrast(1.04);
+  border-radius: 12px;
 }
 
 .profile-card div {
@@ -272,7 +257,7 @@ h3 {
   align-items: center;
   border: 1px solid rgba(11, 107, 88, 0.22);
   border-radius: 999px;
-  background: rgba(255, 252, 246, 0.7);
+  background: var(--soft);
   color: var(--accent-strong);
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 0.82rem;
@@ -314,22 +299,23 @@ h3 {
   justify-content: space-between;
   padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 24px;
-  background: rgba(255, 252, 246, 0.72);
-  box-shadow: 0 14px 38px rgba(30, 43, 39, 0.07);
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: none;
 }
 
 .project-card.featured {
-  background: linear-gradient(145deg, rgba(11, 107, 88, 0.96), rgba(6, 63, 53, 0.94));
-  color: #fff;
+  border-color: #c7d9ee;
+  background: #f4f8fd;
+  color: var(--ink);
 }
 
 .project-meta {
   width: fit-content;
   padding: 6px 10px;
-  border: 1px solid rgba(184, 134, 47, 0.36);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  color: var(--gold);
+  color: var(--label);
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 0.74rem;
   font-weight: 800;
@@ -338,8 +324,8 @@ h3 {
 }
 
 .project-card.featured .project-meta {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #f0dcae;
+  border-color: #c7d9ee;
+  color: var(--accent-strong);
 }
 
 .project-card h3 {
@@ -354,7 +340,7 @@ h3 {
 }
 
 .project-card.featured p {
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--muted);
 }
 
 .news-list {
@@ -369,9 +355,9 @@ h3 {
 .news-list li {
   padding: 18px;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: 14px;
   background: var(--panel);
-  box-shadow: 0 12px 36px rgba(30, 43, 39, 0.07);
+  box-shadow: none;
 }
 
 .news-list span {
@@ -383,7 +369,7 @@ h3 {
 .publications-section h3 {
   margin: 36px 0 16px;
   padding-left: 14px;
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid var(--accent);
   font-family: "Trebuchet MS", Verdana, sans-serif;
 }
 
@@ -400,8 +386,8 @@ h3 {
   position: relative;
   padding: 18px 20px 18px 64px;
   border: 1px solid var(--line);
-  border-radius: 18px;
-  background: rgba(255, 252, 246, 0.64);
+  border-radius: 12px;
+  background: var(--panel);
   color: #293632;
 }
 
@@ -411,7 +397,7 @@ h3 {
   position: absolute;
   left: 18px;
   top: 21px;
-  color: var(--gold);
+  color: var(--label);
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 0.78rem;
   font-weight: 800;
@@ -430,7 +416,7 @@ h3 {
 .service-cards article {
   padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: 14px;
   background: var(--panel);
 }
 
